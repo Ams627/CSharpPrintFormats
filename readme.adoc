@@ -14,13 +14,14 @@
 To those of us who many years ago learned `printf`, C# print formats can be hard to remember. This is, partly of course, due to the fact that
 our brains have atrophied since that golden era.
 
-Here is a simple guide
+Here is a simple guide.
 
 == Interpolated strings
 
 C# was the first language to support the concept of interpolated strings - many other languages have followed this lead. Before C# 6, you would need to print
 a string as follows:
 
+[source,csharp]
 ----
 private static void Main()
 {
@@ -31,6 +32,7 @@ private static void Main()
 
 Now the same code can be written as
 
+[source,csharp]
 ----
 private static void Main()
 {
@@ -42,6 +44,7 @@ private static void Main()
 This is a lot more readable and allows a simple way of concatenating multiple strings. You don't have to print the result: you can use the value 
 returned (which is of type `System.String` aka `string`). For example:
 
+[source,csharp]
 ----
 private static void Main()
 {

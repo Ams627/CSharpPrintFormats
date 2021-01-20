@@ -13,11 +13,16 @@ namespace CSharpPrintFormats
     {
         private static void Main()
         {
-            var i = 1234;
-            var j = 5576788;
-            var i2 = 8;
-            Console.WriteLine($"{i,5}|{j}");
-            Console.WriteLine($"{i2,5}|{j}");
+            var i = 9876123;
+            Console.WriteLine($"{i:n0}");
+
+            var d = 9876123.45;
+            Console.WriteLine($"{d:n}");
+
+            decimal money = 123456789.453M;
+            Console.WriteLine($"{money:n}");
+            Console.WriteLine($"{money:n0}");
+            Console.WriteLine($"{money:n5}");
         }
     }
 }

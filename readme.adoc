@@ -77,3 +77,95 @@ The result is:
     8|5576788
 ----
 
+=== Trailing spaces
+
+To add **trailing** spaces - i.e. spaces to the right of the integer, use a **negative** number as the print format:
+
+[source,csharp]
+----
+var i = 1234;
+var j = 5576788;
+var i2 = 8;
+Console.WriteLine($"{i,-5}|{j}");
+Console.WriteLine($"{i2,-5}|{j}");
+----
+
+The result is:
+
+----
+1234 |5576788
+8    |5576788
+----
+
+=== Leading zeros
+
+To print an integer with leading zeros **in decimal**, use a capital D:
+
+[source,csharp]
+----
+var i = 1234;
+Console.WriteLine($"{i:D8}");
+----
+
+The result is:
+
+----
+00001234
+----
+
+=== Leading zeroes and leading spaces
+
+You can also print in a fixed width field with leading zeros. So, for example, to print right-justified in a ten-character field with a total of four digits:
+
+The result is
+----
+      0123|
+----
+
+=== Hexadecimal
+
+==== Upper case letters 'A'-'F'
+
+To print an integer in hexadecimal, use a capital X instead of D:
+
+[source,csharp]
+----
+var i = 123;
+Console.WriteLine($"{i:X4}");
+----
+
+The result is 
+----
+007B
+----
+
+==== Lower case letters 'a'-'f'
+
+To get lower case hex letters, use a lowercase x as the print format specifier instead of an upper case X.
+
+=== Commas for thousands
+
+Use the `n` print format specifier to get commas to separate numbers. Use n0 to get zero decimal places (obviously no dot either). 
+This format can be used for the following types: `integer`, `float`, `double` and `decimal`.
+
+----
+var i = 9876123;
+Console.WriteLine($"{i:n0}");
+
+var d = 9876123.45;
+Console.WriteLine($"{d:n}");
+
+decimal money = 123456789.453M;
+Console.WriteLine($"{money:n}");
+Console.WriteLine($"{money:n0}");
+Console.WriteLine($"{money:n5}");
+----
+
+The result is:
+----
+9,876,123
+9,876,123.45
+123,456,789.45
+123,456,789
+123,456,789.45300
+----

@@ -1,0 +1,59 @@
+:toc:
+:sectnums:
+:toclevels: 5
+:sectnumlevels: 5
+:showcomments:
+:xrefstyle: short
+:icons: font
+:source-highlighter: coderay
+:tick: &#x2714;
+:pound: &#xA3;
+
+= C# Print Formats
+
+To those of us who many years ago learned `printf`, C# print formats can be hard to remember. This is, partly of course, due to the fact that
+our brains have atrophied since that golden era.
+
+Here is a simple guide
+
+== Interpolated strings
+
+C# was the first language to support the concept of interpolated strings - many other languages have followed this lead. Before C# 6, you would need to print
+a string as follows:
+
+----
+private static void Main()
+{
+    var entity = "world";
+    Console.WriteLine("Hello {0}", entity);
+}
+----
+
+Now the same code can be written as
+
+----
+private static void Main()
+{
+    var entity = "world";
+    Console.WriteLine($"Hello {entity}");
+}
+----
+
+This is a lot more readable and allows a simple way of concatenating multiple strings. You don't have to print the result: you can use the value 
+returned (which is of type `System.String` aka `string`). For example:
+
+----
+private static void Main()
+{
+    var entity = "world";
+    var greeting = "Hello";
+    var phrase = $"{greeting} {entity}";
+    Console.WriteLine(phrase);
+}
+----
+
+== Printing integers
+
+=== Leading Spaces
+
+

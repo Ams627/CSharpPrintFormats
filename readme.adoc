@@ -59,4 +59,21 @@ private static void Main()
 
 === Leading Spaces
 
+To "right-justify" an integer in a field - that is to pad the left of the integer with spaces, simply add a comma then a second integer denoting the field width:
+
+[source,csharp]
+----
+var i = 1234;
+var j = 5576788;
+var i2 = 8;
+Console.WriteLine($"{i,5}|{j}");
+Console.WriteLine($"{i2,5}|{j}");
+----
+
+The result is:
+
+----
+ 1234|5576788
+    8|5576788
+----
 

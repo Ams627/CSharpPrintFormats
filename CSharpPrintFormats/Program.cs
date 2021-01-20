@@ -15,7 +15,9 @@ namespace CSharpPrintFormats
         {
             var i = 1234;
             var j = 5576788;
-            Console.WriteLine($"{i:10}{j}");
+            var i2 = 8;
+            Console.WriteLine($"{i,5}|{j}");
+            Console.WriteLine($"{i2,5}|{j}");
         }
     }
 }

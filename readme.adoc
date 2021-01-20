@@ -117,6 +117,12 @@ The result is:
 
 You can also print in a fixed width field with leading zeros. So, for example, to print right-justified in a ten-character field with a total of four digits:
 
+[source,csharp]
+----
+var i = 123;
+Console.WriteLine($"{i,10:D4}");
+----
+
 The result is
 ----
       0123|
@@ -148,6 +154,7 @@ To get lower case hex letters, use a lowercase x as the print format specifier i
 Use the `n` print format specifier to get commas to separate numbers. Use n0 to get zero decimal places (obviously no dot either). 
 This format can be used for the following types: `integer`, `float`, `double` and `decimal`.
 
+[source,csharp]
 ----
 var i = 9876123;
 Console.WriteLine($"{i:n0}");
@@ -169,3 +176,5 @@ The result is:
 123,456,789
 123,456,789.45300
 ----
+
+** The number after the n is the number of decimal places**

@@ -15,7 +15,7 @@ namespace CSharpPrintFormats
             // create some cultures:
             var cultureStrings = new[] {"en-GB", "fr-FR", "cs-cz", "de-DE"}.ToList();
             var cultures = cultureStrings.Select(x => new CultureInfo(x)).ToList();
-            cultures.ForEach(x => Console.WriteLine(fs.ToString(x)));
+            cultures.ForEach(x => Console.WriteLine($"{fs.ToString(x)} - [{x.DisplayName}]"));
         }
     }
 }

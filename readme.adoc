@@ -252,14 +252,14 @@ FormattableString fs = $"{d:n3}";
 // create some cultures:
 var cultureStrings = new[] {"en-GB", "fr-FR", "cs-cz", "de-DE"}.ToList();
 var cultures = cultureStrings.Select(x => new CultureInfo(x)).ToList();
-cultures.ForEach(x => Console.WriteLine(fs.ToString(x)));
+cultures.ForEach(x => Console.WriteLine($"{fs.ToString(x)} - [{x.DisplayName}]"));
 ----
 
 The result is:
 
 ----
-123,456.789
-123 456,789
-123 456,789
-123.456,789
+123,456.789 - [English (United Kingdom)]
+123 456,789 - [French (France)]
+123 456,789 - [Czech (Czech Republic)]
+123.456,789 - [German (Germany)]
 ----

@@ -177,4 +177,4 @@ The result is:
 123,456,789.45300
 ----
 
-** The number after the n is the number of decimal places**
+**The number after the n is the number of decimal places**

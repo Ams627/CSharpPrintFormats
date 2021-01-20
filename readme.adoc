@@ -242,7 +242,7 @@ This is possible because `CultureInfo` implements the `IFormatProvider` interfac
 
 === Making a `FormattableString`
 
-If you make a `FormattableString`, you can print it in any culture you specify:
+If you make a `FormattableString`, you can print it in any culture you specify, regardless of the current culture:
 
 [source,csharp]
 ----

@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
+using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Xml.Linq;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace CSharpPrintFormats
 {
@@ -13,8 +9,13 @@ namespace CSharpPrintFormats
     {
         private static void Main()
         {
-            var i = 123;
-            Console.WriteLine($"{i,10:D4}");
+            var d = 123456.789;
+            FormattableString fs = $"{d:n3}";
+
+            // create some cultures:
+            var cultureStrings = new[] {"en-GB", "fr-FR", "cs-cz", "de-DE"}.ToList();
+            var cultures = cultureStrings.Select(x => new CultureInfo(x)).ToList();
+            cultures.ForEach(x => Console.WriteLine(fs.ToString(x)));
         }
     }
 }

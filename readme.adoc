@@ -178,3 +178,88 @@ The result is:
 ----
 
 **The number after the n is the number of decimal places**
+
+=== Decimal places without commas
+
+Use the `f` (fixed point) specifier:
+
+[source,csharp]
+----
+var d = 123456.789;
+Console.WriteLine($"{d:f2}");
+----
+
+The result is:
+
+----
+123456.79
+----
+
+**Note that the result is rounded**
+
+== Internationalisation
+
+In much of Europe, the three-digit separator is a space (NOT a comma). A decimal point is not used - a comma is used instead.
+
+=== Setting the thread culture
+
+If we set the current thread's culture to a European culture (e.g. French), we will see a comma instead of a decimal point and a 
+space instead of a comma for the separator.
+
+[source,csharp]
+----
+var d = 123456.789;
+Console.WriteLine($"{d:n3}");
+
+// set French culture:
+Thread.CurrentThread.CurrentCulture = new CultureInfo("fr-FR");
+Console.WriteLine($"{d:n3}");
+----
+
+The result is
+----
+123,456.789
+123 456,789
+----
+
+=== Specifying a culture for `ToString()`
+
+[source,csharp]
+----
+var inFrench = new CultureInfo("fr-FR");
+var result = d.ToString("n3", inFrench);
+Console.WriteLine(result);
+----
+
+The result is:
+
+----
+123 456,789
+----
+
+This is possible because `CultureInfo` implements the `IFormatProvider` interface.
+
+
+=== Making a `FormattableString`
+
+If you make a `FormattableString`, you can print it in any culture you specify:
+
+[source,csharp]
+----
+var d = 123456.789;
+FormattableString fs = $"{d:n3}";
+
+// create some cultures:
+var cultureStrings = new[] {"en-GB", "fr-FR", "cs-cz", "de-DE"}.ToList();
+var cultures = cultureStrings.Select(x => new CultureInfo(x)).ToList();
+cultures.ForEach(x => Console.WriteLine(fs.ToString(x)));
+----
+
+The result is:
+
+----
+123,456.789
+123 456,789
+123 456,789
+123.456,789
+----
